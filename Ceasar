@@ -1,0 +1,19 @@
+def mahoacaesar(plaintext, k):
+    ciphertext = ""
+    for char in plaintext:
+        if char.isalpha():
+            h = k % 26
+            if char.isupper():
+                ciphertext += chr((ord(char) - ord('A') + h) % 26 + ord('A'))
+            else:
+                ciphertext += chr((ord(char) - ord('a') + h) % 26 + ord('a'))
+        else:
+            ciphertext += char
+    return ciphertext
+
+k = 13
+plaintext = "VoHuyenLinh"
+
+ciphertext = mahoacaesar(plaintext, k)
+print(f"Plaintext: {plaintext}")
+print(f"Ciphertext: {ciphertext}")
